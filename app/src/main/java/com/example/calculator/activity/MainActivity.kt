@@ -30,6 +30,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CalculatorTheme {
                 val viewModel = ViewModelProvider(this, viewModelFactory)[CalcViewModel::class.java]
+                val state = viewModel.state
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
