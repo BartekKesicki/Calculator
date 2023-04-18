@@ -10,5 +10,6 @@ val Teal200 = Color(0xFF03DAC5)
 // CALCULATOR UI COLORS
 
 val LightGray = Color(0xFF818181)
-val Gray = Color(0xFF2e2e2e)
+val DarkGray = Color(0xFF2e2e2e)
+val Gray = Color(0xFF484848)
 val Orange = Color(0xFFff9800)

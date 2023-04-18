@@ -3,6 +3,7 @@ package com.example.calculator.activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -15,8 +16,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.calculator.app.App
 import com.example.calculator.calcmanager.CalcManager
+import com.example.calculator.ui.theme.BodySpacing
 import com.example.calculator.ui.theme.CalculatorTheme
+import com.example.calculator.ui.theme.DarkGray
+import com.example.calculator.ui.theme.Gray
 import com.example.calculator.viewmodel.CalcViewModel
+import com.example.calculator.widgets.CalculatorBody
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
@@ -36,7 +41,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Text("Hello")
+                    CalculatorBody(
+                        state = state,
+                        onAction = viewModel::onAction,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(
+                                DarkGray
+                            )
+                            .padding(BodySpacing)
+                    )
                 }
             }
         }

@@ -1,5 +1,7 @@
 package com.example.calculator.calcmanager
 
+import com.example.calculator.actions.CalcOperation
+
 interface CalcManager {
-    fun eval(input: String) : String
+    fun calculate(calcOperation: CalcOperation, firstNumber: String, secondNumber: String) : CalcManagerResult
 }
