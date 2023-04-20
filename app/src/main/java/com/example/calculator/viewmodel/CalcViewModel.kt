@@ -82,10 +82,11 @@ class CalcViewModel @Inject constructor(private val calcManager: CalcManager) : 
             state.firstNumber.isNotBlank() && state.firstNumber == AppConstants.ERROR ->
                 state = CalcState()
 
+            state.firstNumber.isNotBlank() && state.calcOperation != null -> state =
+                state.copy(firstNumber = state.firstNumber, calcOperation = null)
+
             state.firstNumber.isNotBlank() -> state =
                 state.copy(firstNumber = state.firstNumber.dropLast(1))
-
-            state.calcOperation != null -> state = state.copy(calcOperation = null)
         }
     }
 
@@ -105,8 +106,7 @@ class CalcViewModel @Inject constructor(private val calcManager: CalcManager) : 
         if (result != null && result.mode == CalcManagerResultMode.error) {
             state = state.copy(firstNumber = AppConstants.ERROR)
         } else if (result != null && result.mode == CalcManagerResultMode.number) {
-            state = state.copy(firstNumber = result.value)
+            state = state.copy(firstNumber = result.value, calcOperation = null, secondNumber = "")
         }
     }
-
 }

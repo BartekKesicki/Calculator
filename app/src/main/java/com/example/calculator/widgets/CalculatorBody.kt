@@ -52,7 +52,7 @@ fun CalculatorBody(
 @Composable
 fun Display(state: CalcState) {
     Text(
-        text = state.firstNumber + (state.calcOperation ?: "") + state.secondNumber,
+        text = state.firstNumber + (state.calcOperation?.symbol ?: "") + state.secondNumber,
         textAlign = TextAlign.End,
         color = Color.White,
         modifier = Modifier
